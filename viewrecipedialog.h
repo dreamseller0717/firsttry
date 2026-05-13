@@ -4,19 +4,28 @@
 #include <QDialog>
 #include <QVector>
 #include <QString>
-#include <QTextEdit>
+#include <QScrollArea>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 class ViewRecipeDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit ViewRecipeDialog(const QVector<QString> &recipes, QWidget *parent = nullptr);
+    explicit ViewRecipeDialog(QVector<QString> &recipes, QWidget *parent = nullptr);
     ~ViewRecipeDialog();
 
+private slots:
+    void deleteRecipe(int index);
+
 private:
-    QTextEdit *textEdit;
+    void refreshDisplay();
+
+    QVector<QString> *recipes;
+    QScrollArea *scrollArea;
+    QWidget *scrollWidget;
+    QVBoxLayout *scrollLayout;
 };
 
 #endif
