@@ -51,7 +51,6 @@ void ViewRecipeDialog::refreshDisplay()
 
         QPushButton *deleteButton = new QPushButton("删除");
         deleteButton->setFixedWidth(60);
-        deleteButton->setProperty("index", i);
 
         connect(deleteButton, &QPushButton::clicked, this, [this, i]() {
             deleteRecipe(i);

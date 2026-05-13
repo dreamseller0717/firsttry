@@ -22,7 +22,11 @@ private slots:
     void onViewRecipesClicked();
     void onRandomRecipeClicked();
 
-public:
+private:
+    void loadRecipes();
+    void saveRecipes();
+    QString getDataFilePath();
+
     QVector<QString> recipes;
     QLabel *welcomeLabel;
     QPushButton *addButton;
